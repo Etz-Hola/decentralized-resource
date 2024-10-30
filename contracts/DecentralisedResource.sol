@@ -153,10 +153,7 @@ contract DecentralizedResource {
         allPurchases.push(newPurchase);
     }
     // function recordPurchase(
-    //     address _buyer,
-    //     uint256 _amount,
-   
-   
+    
 
     
 
