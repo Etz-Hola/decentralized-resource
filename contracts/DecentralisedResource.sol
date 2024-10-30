@@ -163,10 +163,7 @@ contract DecentralizedResource {
     //         price: _price
     //     });
 
-    //     purchases[_buyer].push(newPurchase);
-
-    //     allPurchases.push(newPurchase);
-    // }
+    
 
     function withDraw() external reentrancyGuard {
         uint256 amount = pendingWithdrawals[msg.sender];
