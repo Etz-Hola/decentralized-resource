@@ -153,9 +153,7 @@ contract DecentralizedResource {
         allPurchases.push(newPurchase);
     }
     // function recordPurchase(
-    
-
-    
+       
 
     function withDraw() external reentrancyGuard {
         uint256 amount = pendingWithdrawals[msg.sender];
