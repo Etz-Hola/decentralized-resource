@@ -6,7 +6,9 @@ import {IERC20} from "./Interface.sol";
 contract DecentralizedResource {
     address energyToken;
 
+
     bool internal locked;
+    
 
     uint256 internal unitBalance;
 
@@ -61,6 +63,8 @@ contract DecentralizedResource {
         energyToken = _tokenAddress;
     }
 
+
+
     function listEnergy(
         uint256 _amount,
         uint256 _pricePerUnit
@@ -80,6 +84,9 @@ contract DecentralizedResource {
         listingCount++;
         emit EnergyListed(newListingId, msg.sender, _amount, _pricePerUnit);
     }
+
+
+
 
     function energyBalance(address _user) external view returns (uint256) {
         return energyBalances[_user];
