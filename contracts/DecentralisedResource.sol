@@ -3,10 +3,13 @@ pragma solidity ^0.8.27;
 
 import {IERC20} from "./Interface.sol";
 
+
 contract DecentralizedResource {
     address energyToken;
 
+
     bool internal locked;
+
 
     uint256 internal unitBalance;
 
@@ -20,6 +23,7 @@ contract DecentralizedResource {
     mapping(uint256 => EnergyListing) public listings;
     uint256[] public listingIds;
     Purchases[] public allPurchases;
+
 
     struct Purchases {
         address buyer;
@@ -49,6 +53,7 @@ contract DecentralizedResource {
         uint256 amount,
         uint256 pricePerUnit
     );
+
     event EnergyPurchased(
         uint256 indexed listingId,
         address buyer,
@@ -56,10 +61,14 @@ contract DecentralizedResource {
     );
     event WithdrawalMade(address indexed user, uint256 amount);
 
+
+
     constructor(address _tokenAddress) {
         require(_tokenAddress != address(0), "Invalid token address");
         energyToken = _tokenAddress;
     }
+
+
 
     function listEnergy(
         uint256 _amount,
@@ -80,6 +89,9 @@ contract DecentralizedResource {
         listingCount++;
         emit EnergyListed(newListingId, msg.sender, _amount, _pricePerUnit);
     }
+
+
+
 
     function energyBalance(address _user) external view returns (uint256) {
         return energyBalances[_user];
@@ -104,6 +116,7 @@ contract DecentralizedResource {
             listing.seller,
             totalCost
         );
+
         require(sent, "Transfer failed, Payment not executed");
 
         listing.amount -= _amount;
@@ -120,6 +133,7 @@ contract DecentralizedResource {
         recordPurchase(msg.sender, _amount, listing.pricePerUnit);
 
         emit EnergyPurchased(_index, msg.sender, _amount);
+
         return true;
     }
 
@@ -135,8 +149,10 @@ contract DecentralizedResource {
         });
 
         purchases[_buyer].push(newPurchase);
+
         allPurchases.push(newPurchase);
     }
+
 
     function withDraw() external reentrancyGuard {
         uint256 amount = pendingWithdrawals[msg.sender];
@@ -148,6 +164,7 @@ contract DecentralizedResource {
 
         emit WithdrawalMade(msg.sender, amount);
     }
+
 
     function getAllEnergyListed()
         external
@@ -162,6 +179,8 @@ contract DecentralizedResource {
 
         return allListings;
     }
+
+
 
     function getAllEnergySold() external view returns (Purchases[] memory) {
         return allPurchases;
