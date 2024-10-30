@@ -41,5 +41,34 @@ describe("Decentralized Renewable Energy Sharing Test", function () {
             expect(energyListing.pricePerUnit).to.equal(pricePerUnit_);
             expect(energyListing.active).to.be.true;
         });
+
+    
+
+
+ it("Should return the energy balance", async function () {
+            const { decentralizedResource, owner } = await loadFixture(deployDecentralizedResourceFixture);
+
+            const energyBal = await decentralizedResource.connect(owner).energyBalance(owner.address)
+
+            expect(energyBal).to.equal(0);
+
+
+        })
+
+        it("Should return all the available energy", async function () {
+            const { decentralizedResource, owner } = await loadFixture(deployDecentralizedResourceFixture);
+
+            expect(await decentralizedResource.connect(owner).getAllEnergyListed());
+
+
+        })
+
+        it("Should return the energy sold metrics", async function () {
+            const { decentralizedResource, owner } = await loadFixture(deployDecentralizedResourceFixture);
+
+            expect(await decentralizedResource.connect(owner).getAllEnergySold())
+        })
+
+
     })
 })
