@@ -2,6 +2,8 @@
 
 This repository contains the smart contract for a decentralized platform where households with surplus solar energy can sell it directly to nearby users. The contract enables peer-to-peer energy trading, allowing buyers and sellers to agree on prices and automatically handle payments through blockchain transactions.
 
+The project is built, tested and verified on the Ethereum Sepolia Testnet.
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -29,7 +31,8 @@ The smart contract currently supports the following functionality:
 
 ### Contract Components
 
-- **EnergyMarketplace.sol**: Main contract that handles listing, purchasing, and payment processing between buyers and sellers.
+- **ERC20.sol**: Token contract that handles purchasing, and payment processing between buyers and sellers.
+- **DecentralisedResource.sol**: Main contract that handles listing, purchasing, and payment processing between buyers and sellers.
 
 ## Technologies Used
 
@@ -76,4 +79,11 @@ Run Contract Tests: Write and run test cases to ensure all functions work as exp
 
 ```bash
 npx hardhat test
+```
+
+## Contract Addresses.
+
+```bash
+ Token: https://sepolia.etherscan.io/address/0xE8f167CB3A8ef049a70e602c3C74076a75D5bc0c
+ DecentralisedResource: https://sepolia.etherscan.io/address/0x40B56A4e83eBbE5c0c3Cd45F733cB9EF1E9F01cE
 ```
