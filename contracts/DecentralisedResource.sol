@@ -3,12 +3,13 @@ pragma solidity ^0.8.27;
 
 import {IERC20} from "./Interface.sol";
 
+
 contract DecentralizedResource {
     address energyToken;
 
 
     bool internal locked;
-    
+
 
     uint256 internal unitBalance;
 
@@ -22,6 +23,7 @@ contract DecentralizedResource {
     mapping(uint256 => EnergyListing) public listings;
     uint256[] public listingIds;
     Purchases[] public allPurchases;
+
 
     struct Purchases {
         address buyer;
@@ -51,12 +53,15 @@ contract DecentralizedResource {
         uint256 amount,
         uint256 pricePerUnit
     );
+
     event EnergyPurchased(
         uint256 indexed listingId,
         address buyer,
         uint256 amount
     );
     event WithdrawalMade(address indexed user, uint256 amount);
+
+
 
     constructor(address _tokenAddress) {
         require(_tokenAddress != address(0), "Invalid token address");
@@ -155,6 +160,7 @@ contract DecentralizedResource {
 
         emit WithdrawalMade(msg.sender, amount);
     }
+    
 
     function getAllEnergyListed()
         external
@@ -169,6 +175,8 @@ contract DecentralizedResource {
 
         return allListings;
     }
+
+
 
     function getAllEnergySold() external view returns (Purchases[] memory) {
         return allPurchases;
