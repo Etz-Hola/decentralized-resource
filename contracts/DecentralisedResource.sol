@@ -116,7 +116,7 @@ contract DecentralizedResource {
             listing.seller,
             totalCost
         );
-        
+
         require(sent, "Transfer failed, Payment not executed");
 
         listing.amount -= _amount;
@@ -152,6 +152,21 @@ contract DecentralizedResource {
 
         allPurchases.push(newPurchase);
     }
+    // function recordPurchase(
+    //     address _buyer,
+    //     uint256 _amount,
+    //     uint256 _price
+    // ) internal {
+    //     Purchases memory newPurchase = Purchases({
+    //         buyer: _buyer,
+    //         amount: _amount,
+    //         price: _price
+    //     });
+
+    //     purchases[_buyer].push(newPurchase);
+
+    //     allPurchases.push(newPurchase);
+    // }
 
     function withDraw() external reentrancyGuard {
         uint256 amount = pendingWithdrawals[msg.sender];
