@@ -34,7 +34,7 @@ describe("Decentralized Renewable Energy Sharing Test", function () {
             await decentralizedResource.connect(owner).listEnergy(amount_, pricePerUnit_);
 
             const energies = await decentralizedResource.getAllEnergyListed();
-            const energyListing = energies[index];
+            const energyListing = energies[index]; 
 
             expect(energyListing.seller).to.equal(owner.address);
             expect(energyListing.amount).to.equal(amount_);
