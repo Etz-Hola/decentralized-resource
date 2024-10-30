@@ -7,6 +7,7 @@ contract EnergyToken {
     string tokenSymbol;
     uint256 totalSupply;
     address owner;
+    
 
     constructor(string memory _name, string memory _symbol) {
         tokenName = _name;

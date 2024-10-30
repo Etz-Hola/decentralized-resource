@@ -155,13 +155,8 @@ contract DecentralizedResource {
     // function recordPurchase(
     //     address _buyer,
     //     uint256 _amount,
-    //     uint256 _price
-    // ) internal {
-    //     Purchases memory newPurchase = Purchases({
-    //         buyer: _buyer,
-    //         amount: _amount,
-    //         price: _price
-    //     });
+   
+   
 
     
 
