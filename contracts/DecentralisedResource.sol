@@ -116,6 +116,7 @@ contract DecentralizedResource {
             listing.seller,
             totalCost
         );
+        
         require(sent, "Transfer failed, Payment not executed");
 
         listing.amount -= _amount;
@@ -132,6 +133,7 @@ contract DecentralizedResource {
         recordPurchase(msg.sender, _amount, listing.pricePerUnit);
 
         emit EnergyPurchased(_index, msg.sender, _amount);
+
         return true;
     }
 
@@ -147,6 +149,7 @@ contract DecentralizedResource {
         });
 
         purchases[_buyer].push(newPurchase);
+
         allPurchases.push(newPurchase);
     }
 
@@ -160,7 +163,7 @@ contract DecentralizedResource {
 
         emit WithdrawalMade(msg.sender, amount);
     }
-    
+
 
     function getAllEnergyListed()
         external
