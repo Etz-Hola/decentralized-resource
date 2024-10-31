@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.27;
 
-import {IERC20} from "./Interface.sol";
+import {EnergyToken} from "./ERC20.sol";
 
 contract DecentralizedResource {
     address energyToken;
@@ -96,11 +96,11 @@ contract DecentralizedResource {
 
         uint256 totalCost = _amount * listing.pricePerUnit;
         require(
-            IERC20(energyToken).balanceOf(msg.sender) >= totalCost,
+            EnergyToken(energyToken).balanceOf(msg.sender) >= totalCost,
             "Insufficient balance"
         );
 
-        bool sent = IERC20(energyToken).transferFrom(
+        bool sent = EnergyToken(energyToken).transferFrom(
             msg.sender,
             listing.seller,
             totalCost
@@ -147,7 +147,8 @@ contract DecentralizedResource {
         require(amount > 0, "Nothing to withdraw");
 
         pendingWithdrawals[msg.sender] = 0;
-        bool success = IERC20(energyToken).transfer(msg.sender, amount);
+
+        bool success = EnergyToken(energyToken).transfer(msg.sender, amount);
         require(success, "Withdrawal failed");
 
         emit WithdrawalMade(msg.sender, amount);

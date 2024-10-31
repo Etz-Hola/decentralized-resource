@@ -8,6 +8,8 @@ const TokenModule = buildModule("TokenModule", (m) => {
 
 
     const token = m.contract("EnergyToken", ["Regen Token", "RGT"]);
+    // console.log("Deployed EnergyToken at:", token);
+
 
     return { token };
 });

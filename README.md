@@ -84,6 +84,6 @@ npx hardhat test
 ## Contract Addresses.
 
 ```bash
- Token: https://sepolia.etherscan.io/address/0xE8f167CB3A8ef049a70e602c3C74076a75D5bc0c
- DecentralisedResource: https://sepolia.etherscan.io/address/0x40B56A4e83eBbE5c0c3Cd45F733cB9EF1E9F01cE
+ Token: https://sepolia.etherscan.io/address/0xcDE4288aEb296A8E6C536041398B164659d3Dd28
+ DecentralisedResource: https://sepolia.etherscan.io/address/0x98FD3b5A2aaAC11dFf931427Addf86D926C985A8
 ```

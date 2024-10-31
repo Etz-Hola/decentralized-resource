@@ -2,16 +2,15 @@
 // Learn more about it at https://hardhat.org/ignition
 
 import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
-import { vars } from "hardhat/config";
+import TOKEN from "../deployments/chain-11155111/deployed_addresses.json"
 
 
-const TOKEN = vars.get("TOKEN_KEY")
 
 
 const DRSModule = buildModule("DRSModule", (m) => {
 
 
-  const dRS = m.contract("DecentralizedResource", [TOKEN]);
+  const dRS = m.contract("DecentralizedResource", [TOKEN["TokenModule#EnergyToken"]]);
 
   return { dRS };
 });
