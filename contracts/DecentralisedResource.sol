@@ -142,17 +142,18 @@ contract DecentralizedResource {
         allPurchases.push(newPurchase);
     }
 
-    function withDraw() external reentrancyGuard {
-        uint256 amount = pendingWithdrawals[msg.sender];
-        require(amount > 0, "Nothing to withdraw");
+   function withDraw() external reentrancyGuard {
+    uint256 amount = pendingWithdrawals[msg.sender];
+    require(amount > 0, "Nothing to withdraw");
 
-        pendingWithdrawals[msg.sender] = 0;
+    pendingWithdrawals[msg.sender] = 0;
 
-        bool success = EnergyToken(energyToken).transfer(msg.sender, amount);
-        require(success, "Withdrawal failed");
+    require(EnergyToken(energyToken).balanceOf(address(this)) >= amount, "Contract insufficient balance");
+    require(EnergyToken(energyToken).transfer(msg.sender, amount), "Withdrawal failed");
 
-        emit WithdrawalMade(msg.sender, amount);
-    }
+    emit WithdrawalMade(msg.sender, amount);
+}
+
 
     function getAllEnergyListed()
         external

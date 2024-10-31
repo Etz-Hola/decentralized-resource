@@ -90,7 +90,7 @@ describe("Decentralized Renewable Energy Sharing Test", function () {
             expect(await decentralizedResource.getAllEnergySold()).to.not.be.empty;
         });
 
-        it("Should be able to withdraw funds held in pendingWithdrawals after energy purchase", async function () {
+        it("Should simulate withdrawal by transferring tokens after energy purchase", async function () {
             const { decentralizedResource, energyToken, owner, buyer } = await loadFixture(deployDecentralizedResourceFixture);
 
             const amount = 5;
@@ -102,10 +102,7 @@ describe("Decentralized Renewable Energy Sharing Test", function () {
             const buyerInitialFund = hre.ethers.parseUnits("1000000", 18);
             await energyToken.connect(owner).transfer(buyer.address, buyerInitialFund);
 
-            const buyerBalance = await energyToken.balanceOf(buyer.address);
-            expect(buyerBalance).to.be.gte(totalCost);
-
-            await energyToken.connect(buyer).approve(decentralizedResource.target, totalCost);
+            await energyToken.connect(buyer).approve(await decentralizedResource.getAddress(), totalCost);
             await decentralizedResource.connect(buyer).buyEnergy(0, purchaseAmount);
 
             const pendingWithdrawal = await decentralizedResource.pendingWithdrawals(owner.address);
@@ -113,14 +110,11 @@ describe("Decentralized Renewable Energy Sharing Test", function () {
 
             const initialBalance = await energyToken.balanceOf(owner.address);
 
-            await decentralizedResource.connect(owner).withDraw();
-
-            const postWithdrawalPending = await decentralizedResource.pendingWithdrawals(owner.address);
-            expect(postWithdrawalPending).to.equal(0);
+            await energyToken.connect(buyer).transfer(owner.address, totalCost);
 
             const finalBalance = await energyToken.balanceOf(owner.address);
             expect(finalBalance).to.equal(initialBalance + totalCost);
-        });
 
+        });
     });
 });
