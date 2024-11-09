@@ -10,9 +10,9 @@ The project is built, tested, and verified on the Ethereum Sepolia Testnet.
 - [Smart Contract Details](#smart-contract-details)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Compilation and Deployment](#compilation-and-deployment)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Compilation and Deployment](#compilation-and-deployment)
 - [Testing](#testing)
 - [License](#license)
 
@@ -48,9 +48,10 @@ The frontend is built to provide a user-friendly interface for interacting with 
 - **Energy Listing Management**: Sellers can add and update their energy listings.
 - **Energy Browsing**: Buyers can view available energy listings, filtering by criteria such as location and price.
 
-  - **Transaction Interaction**: Buyers and sellers can connect their wallets and directly interact with the smart contracts to complete transactions.
+- **Transaction Interaction**: Buyers and sellers can connect their wallets and directly interact with the smart contracts to complete transactions.
 
-    ## Frontend Technologies
+
+## Frontend Technologies
 
 - **React Vite**: For building the user interface.
 - **Ethers.js**: To interact with the blockchain and smart contracts.
@@ -109,8 +110,8 @@ npx hardhat test
 
 ## Contract Addresses.
 
-Token: [ Sepolia Token Contract](https://sepolia.etherscan.io/address/0xcDE4288aEb296A8E6C536041398B164659d3Dd28)
-DecentralisedResource: [ Sepolia Resource Contract](https://sepolia.etherscan.io/address/0x98FD3b5A2aaAC11dFf931427Addf86D926C985A8)
+- **Token**: [ Sepolia Token Contract](https://sepolia.etherscan.io/address/0xcDE4288aEb296A8E6C536041398B164659d3Dd28)
+- **DecentralisedResource:** [ Sepolia Resource Contract](https://sepolia.etherscan.io/address/0x98FD3b5A2aaAC11dFf931427Addf86D926C985A8)
 
 ## Running the Frontend
 
