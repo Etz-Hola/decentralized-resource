@@ -1,8 +1,8 @@
-# Decentralized Renewable Energy Sharing Smart Contract
+# Decentralized Renewable Energy Sharing
 
-This repository contains the smart contract for a decentralized platform where households with surplus solar energy can sell it directly to nearby users. The contract enables peer-to-peer energy trading, allowing buyers and sellers to agree on prices and automatically handle payments through blockchain transactions.
+This repository contains both the smart contracts and the frontend for a decentralized platform where households with surplus solar energy can sell it directly to nearby users. The platform enables peer-to-peer energy trading, with buyers and sellers agreeing on prices and transactions being handled securely through blockchain technology.
 
-The project is built, tested and verified on the Ethereum Sepolia Testnet.
+The project is built, tested, and verified on the Ethereum Sepolia Testnet.
 
 ## Table of Contents
 
@@ -18,7 +18,14 @@ The project is built, tested and verified on the Ethereum Sepolia Testnet.
 
 ## Overview
 
-This smart contract is designed to facilitate secure, automated transactions in the decentralized renewable energy marketplace. By leveraging blockchain, the platform ensures trustless and transparent energy trading where users can buy or sell surplus solar energy.
+This decentralized renewable energy marketplace leverages blockchain technology to facilitate secure and transparent energy trading. Households with surplus solar energy can list their energy for sale, while buyers can browse available energy and purchase it directly. The platform's blockchain-based transactions ensure trust and transparency throughout the process.
+
+## Project Architecture
+
+The project comprises two main components:
+
+- **Smart Contracts**: These handle listing, buying, and payment processing for energy transactions.
+- **Frontend**: A user interface built to interact seamlessly with the smart contracts, allowing users to list, browse, and purchase energy easily.
 
 ## Smart Contract Details
 
@@ -34,10 +41,28 @@ The smart contract currently supports the following functionality:
 - **ERC20.sol**: Token contract that handles purchasing, and payment processing between buyers and sellers.
 - **DecentralisedResource.sol**: Main contract that handles listing, purchasing, and payment processing between buyers and sellers.
 
+## Frontend Details
+
+The frontend is built to provide a user-friendly interface for interacting with the decentralized marketplace. Key functionalities include:
+
+- **Energy Listing Management**: Sellers can add and update their energy listings.
+- **Energy Browsing**: Buyers can view available energy listings, filtering by criteria such as location and price.
+
+  - **Transaction Interaction**: Buyers and sellers can connect their wallets and directly interact with the smart contracts to complete transactions.
+
+    ## Frontend Technologies
+
+- **React Vite**: For building the user interface.
+- **Ethers.js**: To interact with the blockchain and smart contracts.
+- **Tailwind CSS**: For styling and responsive design.
+
 ## Technologies Used
 
 - **Solidity**: For writing the smart contract.
 - **Hardhat**: Development environment and testing framework for deploying and testing smart contracts.
+- **React**: Frontend development.
+- **Web3.js/Ethers.js**: Blockchain interaction.
+- **Tailwind CSS**: Styling.
 
 ## Getting Started
 
@@ -47,6 +72,7 @@ Ensure you have the following installed:
 
 - **Node.js** (v14 or later)
 - **Hardhat**: Smart contract deployment framework
+- **MetaMask**: For interacting with the frontend
 
 ### Installation
 
@@ -83,7 +109,16 @@ npx hardhat test
 
 ## Contract Addresses.
 
+Token: [ Sepolia Token Contract](https://sepolia.etherscan.io/address/0xcDE4288aEb296A8E6C536041398B164659d3Dd28)
+DecentralisedResource: [ Sepolia Resource Contract](https://sepolia.etherscan.io/address/0x98FD3b5A2aaAC11dFf931427Addf86D926C985A8)
+
+## Running the Frontend
+
+Start the frontend application:
+
 ```bash
- Token: https://sepolia.etherscan.io/address/0xcDE4288aEb296A8E6C536041398B164659d3Dd28
- DecentralisedResource: https://sepolia.etherscan.io/address/0x98FD3b5A2aaAC11dFf931427Addf86D926C985A8
+cd resource-client
+npm run dev
 ```
+
+Connect your MetaMask wallet to the Sepolia Testnet and enjoy the experience.
