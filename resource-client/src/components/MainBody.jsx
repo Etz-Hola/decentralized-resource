@@ -9,14 +9,28 @@ import { FaSquare, FaLaptopCode } from "react-icons/fa6";
 import { BiWorld } from "react-icons/bi";
 import { LuBadgeCheck } from "react-icons/lu";
 import { GrContactInfo } from "react-icons/gr";
+import { useEffect, useState } from "react";
 
 const MainBody = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <main
-      className="bg-[#0F051D] flex flex-col text-white items-center p-6 font-serif
-"
+      className={`bg-[#0F051D] flex flex-col text-white items-center p-6 font-serif transition-all duration-500 ease-in-out ${
+        scrollPosition > 100 ? "opacity-100" : "opacity-75"
+      }`}
     >
-      <div className="flex gap-[40px] -mt-[18px]  p-4 rounded-sm bg-white  flex-wrap">
+      <div className="flex gap-[40px] -mt-[18px]  p-4 rounded-sm  flex-wrap">
         <img src={Cardano} alt="" className="w-[100px] " />
         <img src={Ethereum} alt="" className="w-[100px] " />
         <img src={Metamask} alt="" className="w-[100px] " />
