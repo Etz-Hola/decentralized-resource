@@ -26,6 +26,7 @@ const MainBody = () => {
   }, []);
   return (
     <main
+
       className={`bg-[#0F051D] flex flex-col text-white items-center p-6 font-serif transition-all duration-500 ease-in-out ${
         scrollPosition > 100 ? "opacity-100" : "opacity-75"
       }`}
