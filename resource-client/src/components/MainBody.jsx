@@ -13,7 +13,7 @@ import { GrContactInfo } from "react-icons/gr";
 const MainBody = () => {
   return (
     <main
-      className="bg-[#0F051D] flex flex-col text-white items-center p-6 font-serif
+      className="bg-[#0F051D] flex flex-col text-white items-center p-6 font-serif 
 "
     >
       <div className="flex gap-[40px] -mt-[18px]  p-4 rounded-sm bg-white  flex-wrap">
