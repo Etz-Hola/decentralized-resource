@@ -1,46 +1,38 @@
-import React from 'react';
+import React from "react";
 import { MdOutlineSubdirectoryArrowLeft } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa";
+import arrow from "/Vector.svg";
+import side from "/Sideimage.svg";
+import star from "/Ster.svg";
 
 const Hero = () => {
   return (
-    <section className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto p-8 md:py-16 bg-white">
-      <div className="flex flex-col md:w-1/2 space-y-4 md:space-y-6 md:pr-12">
-        <div className="flex justify-center">
-          <img src="Ster.svg" alt="Star" className="w-12 h-12" />
+    <>
+      <section className=" bg-[#FFFDF6] flex py-[50px] md:px-[74px] gap-[100px] md:flex-row flex-col items-center justify-center ">
+        <div className=" w-full md:w-[494px] p-6 flex flex-col sm:items-center md:text-left md:justify-start sm:justify-center text-center ">
+          <div className="flex md:justify-end ">
+            <img src={star} className="" />
+          </div>
+          <div className="flex flex-col ">
+            <h1 className="text-[54px] font-400 ">
+              Power Your <span className="text-[#74A0AF] ">Neighborhood</span>
+            </h1>
+            <p className="text-[24px] ">
+              Share, Sell, and Access Light <br /> Anywhere with Decentralized
+              Ease.
+            </p>
+          </div>
+
+          <button className="mt-[50px] flex items-center gap-2 bg-[#55C8ED] p-[6px] border-[1px] fold-bold relative  rounded border-black  text-base  transition duration-100">
+            Get Started <FaArrowRight />
+          </button>
         </div>
 
-        <h1 className="text-4xl md:text-5xl font-bold leading-tight text-center md:text-left">
-          Power Your <span className="text-blue-500">Neighborhood</span>
-        </h1>
-
-        <p className="text-lg md:text-xl text-gray-700 text-center md:text-left mb-4">
-          Share, sell, and access light anywhere with decentralized ease.
-        </p>
-
-        <div className="flex justify-end items-center space-x-4 mb-6 md:block hidden ml-auto">
-          <MdOutlineSubdirectoryArrowLeft className="text-6xl md:text-8xl text-blue-500 hover:text-blue-800 transition" />
+        <div className="">
+          <img src={side} className="w-full" />
         </div>
-
-        <div className="flex justify-center md:justify-start mt-6 md:mt-0">
-          <a
-            href="#"
-            className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg flex items-center space-x-2 hover:bg-blue-600 transition"
-          >
-            <span>Get Started</span>
-            <FaArrowRight />
-          </a>
-        </div>
-      </div>
-
-      <div className="mt-8 md:mt-0 md:w-1/2">
-        <img
-          src="Sideimage.svg"
-          alt="Group"
-          className="w-full h-auto"
-        />
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

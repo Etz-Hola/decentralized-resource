@@ -26,7 +26,6 @@ const MainBody = () => {
   }, []);
   return (
     <main
-
       className={`bg-[#0F051D] flex flex-col text-white items-center p-6 font-serif transition-all duration-500 ease-in-out ${
         scrollPosition > 100 ? "opacity-100" : "opacity-75"
       }`}
@@ -88,7 +87,7 @@ const MainBody = () => {
       </div>
 
       <div className="flex flex-col gap-6 items-center my-6">
-        <h2 className="text-[60px]">
+        <h2 className="text-[50px] md:text-[60px]">
           Why{" "}
           <span className="bg-gradient-to-r from-[#6100FF] to-[#01F0FF] bg-clip-text text-transparent">
             {" "}
